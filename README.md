@@ -31,3 +31,9 @@ A classic board game implementation built with interactive visuals, intelligent 
 ### Game Management
 - **Start a new game** or **restart** after a match ends.  
 - Return to the **main menu** to adjust settings or switch modes.
+
+### Developed by;
+- Muhammad Hassan
+- Minaal Hassan Cheema
+- Rafeh Waqar
+
