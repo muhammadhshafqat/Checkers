@@ -10,10 +10,9 @@ A classic board game implementation built with interactive visuals, intelligent 
 - **Player vs Computer (PVC):** Play against an AI opponent that makes valid moves automatically.
 
 ### Game Mechanics
-- Players make moves using **mouse clicks** — select and move pieces directly on the board.  
+- Players make moves using **mouse clicks**.  
 - **Turns alternate** automatically between players.  
-- The game validates all moves — **invalid moves are disallowed** and show a visual warning.  
-- Implements **piece promotion logic** — pieces become *Kings* upon reaching the opposite side.  
+- The game validates all moves (**invalid moves are disallowed** and show a visual warning).  
 - **Game-ending conditions** are detected:
   - No valid moves left.
   - No remaining pieces.
@@ -26,7 +25,7 @@ A classic board game implementation built with interactive visuals, intelligent 
 ### Settings & Customization
 - Change **background color** and **toggle sound effects**.  
 - Track **lowest time to win** across sessions.  
-- **Save and load** game progress — even after restarting the program.
+- **Save and load** game progress.
 
 ### Game Management
 - **Start a new game** or **restart** after a match ends.  
