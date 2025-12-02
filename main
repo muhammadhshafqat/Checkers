@@ -218,15 +218,36 @@ void drawBoard(sf::RenderWindow& window) {
         window.draw(highlight);
 
         int dr = (currentPlayer == 1) ? -1 : 1;
+
+        // ---- NORMAL 1-STEP DIAGONAL MOVES ----
         for (int dc : {-1, 1}) {
             int r2 = selectedR + dr;
             int c2 = selectedC + dc;
+
             if (isValidMove(selectedR, selectedC, r2, c2, currentPlayer)) {
-                sf::CircleShape validMove(8.f);
-                validMove.setFillColor(sf::Color(0, 255, 0, 150));
-                validMove.setPosition({ static_cast<float>(c2 * CELL_SIZE + CELL_SIZE / 2 - 8),
-                                      static_cast<float>(r2 * CELL_SIZE + CELL_SIZE / 2 - 8) });
-                window.draw(validMove);
+                sf::CircleShape dot(8.f);
+                dot.setFillColor(sf::Color(0, 255, 0, 150));
+                dot.setPosition({
+                    static_cast<float>(c2 * CELL_SIZE + CELL_SIZE / 2 - 8),
+                    static_cast<float>(r2 * CELL_SIZE + CELL_SIZE / 2 - 8)
+                    });
+                window.draw(dot);
+            }
+        }
+
+        // ---- JUMP / CAPTURE 2-STEP DIAGONAL MOVES ----
+        for (int dc : {-2, 2}) {
+            int r2 = selectedR + dr * 2;
+            int c2 = selectedC + dc;
+
+            if (isValidMove(selectedR, selectedC, r2, c2, currentPlayer)) {
+                sf::CircleShape dot(8.f);
+                dot.setFillColor(sf::Color(0, 200, 0, 200)); // slightly brighter for jumps
+                dot.setPosition({
+                    static_cast<float>(c2 * CELL_SIZE + CELL_SIZE / 2 - 8),
+                    static_cast<float>(r2 * CELL_SIZE + CELL_SIZE / 2 - 8)
+                    });
+                window.draw(dot);
             }
         }
     }
@@ -336,6 +357,5 @@ int main()
         drawBoard(window);
         window.display();
     }
-
     return 0;
 }
